@@ -1,20 +1,31 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../constants.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
+  static const id = 'chatScreen';
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  final _auth = FirebaseAuth.instance;
+
+  void getCurrentUser() {
+    final user = _auth.currentUser;
+    print(user);
+  }
+
   @override
   Widget build(BuildContext context) {
+    getCurrentUser();
     return Scaffold(
       appBar: AppBar(
         leading: null,
-        actions: <Widget>[
+        actions: [
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
@@ -28,12 +39,12 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
+          children: [
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
+                children: [
                   Expanded(
                     child: TextField(
                       onChanged: (value) {
