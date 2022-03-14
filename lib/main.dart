@@ -5,7 +5,9 @@ import 'package:flash_chat_messenger/screens/registration_screen.dart';
 import 'package:flash_chat_messenger/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(FlashChat());
 }
 

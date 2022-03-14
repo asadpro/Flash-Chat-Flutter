@@ -23,15 +23,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   void initState() {
     super.initState();
-    
 
     controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 2),
     );
-    animation = ColorTween(
-            begin: Colors.blue, end: Colors.green)
-        .animate(controller);
+    animation =
+        ColorTween(begin: Colors.blue, end: Colors.green).animate(controller);
     animation2 = CurvedAnimation(parent: controller, curve: Curves.decelerate);
     borderAnimation = BorderRadiusTween(
             begin: BorderRadius.circular(12), end: BorderRadius.circular(22))
@@ -93,7 +91,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 DefaultTextStyle(
                   overflow: TextOverflow.fade,
                   style: TextStyle(
-                    fontSize: 40.0,
+                    fontSize: 35.0,
                     fontWeight: FontWeight.w900,
                     color: Colors.black,
                   ),
